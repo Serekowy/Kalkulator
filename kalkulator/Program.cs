@@ -8,32 +8,33 @@ namespace kalkulator
         {
             while (true)
             {
-                Console.Write("Wprowadź pierwszą liczbę: ");
-                string pLiczba = Console.ReadLine();
-                float liczba, wynik;
-                bool spr = float.TryParse(pLiczba, out liczba);
+                string pLiczba = " ", dLiczba = " ";
+                float liczba = 0, wynik = 0, liczbaD = 0;
+                bool spr = false;
 
             poczatek:
 
                 while (!spr)
                 {
-                    WprowadzLiczbe();
                     Console.Write("Wprowadź pierwszą liczbę: ");
                     pLiczba = Console.ReadLine();
                     spr = float.TryParse(pLiczba, out liczba);
-                }
 
-                Console.Write("Wprowadź drugą liczbę: ");
-                string dLiczba = Console.ReadLine();
-                float liczbaD;
-                spr = float.TryParse(dLiczba, out liczbaD);
+                    if (spr == false)
+                    {
+                        WprowadzLiczbe();
+                        continue;
+                    }
 
-                while (!spr)
-                {
-                    WprowadzLiczbe();
                     Console.Write("Wprowadź drugą liczbę: ");
                     dLiczba = Console.ReadLine();
                     spr = float.TryParse(dLiczba, out liczbaD);
+
+                    if (spr == false)
+                    {
+                        WprowadzLiczbe();
+                        continue;
+                    }
                 }
 
                 Console.Clear();
